@@ -16,8 +16,9 @@ const resolvers = {
         level: level,
       });
 
-      await _score.save();
-      console.log(_score);
+      _score.save()
+      .then((value)=>console.log(value))
+      // console.log(_score);
       return true;
     },
   },

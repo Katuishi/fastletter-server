@@ -5,10 +5,10 @@ const { typeDefs } = require("./Graphql/TypeDefs");
 const mongoose = require("mongoose");
 
 const Main = async () => {
-  await mongoose.connect(
-    "mongodb+srv://test:salami@cluster0.xpykm.mongodb.net/test?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  );
+  await mongoose.connect(process.env.DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 
   const apolloServer = new ApolloServer({ typeDefs, resolvers });
 
