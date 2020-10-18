@@ -3,9 +3,11 @@ const { Mongoose } = require("mongoose");
 const { resolvers } = require("./Graphql/Resolver");
 const { typeDefs } = require("./Graphql/TypeDefs");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const Main = async () => {
-  await mongoose.connect(process.env.DB_URL, {
+  await mongoose.connect(String(process.env.DBURl), {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
@@ -17,4 +19,6 @@ const Main = async () => {
   });
 };
 
-Main();
+Main().catch((error) => {
+  console.log(error);
+});
