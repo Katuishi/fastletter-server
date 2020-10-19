@@ -9,7 +9,7 @@ const resolvers = {
   },
   Mutation: {
     addScore: async (_, args, context, info) => {
-      const { username, points, level } = args;
+      const { username, points, level } = args.user;
       const _score = new Score({
         username: username,
         points: points,
