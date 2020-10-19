@@ -9,17 +9,16 @@ const resolvers = {
   },
   Mutation: {
     addScore: async (_, args, context, info) => {
-      const { username, points, level } = args.user;
+      const { username, points, level } = args;
       const _score = new Score({
         username: username,
         points: points,
         level: level,
       });
 
-      _score.save()
-      .then((value)=>console.log(value))
-      // console.log(_score);
-      return true;
+      await _score.save();
+
+      return _score;
     },
   },
 };

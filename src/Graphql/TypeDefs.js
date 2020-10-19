@@ -7,7 +7,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addScore(user: InputScore!): Boolean
+    addScore(user: InputScore!): Score
   }
 
   input InputScore {
